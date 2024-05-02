@@ -1,0 +1,13 @@
+steps:
+  # Docker Build
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t',
+           'asia-northeast1-docker.pkg.dev/${_PROJECT_ID}/api/api:latest',
+           '.']
+
+  # Docker Push
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push',
+           'asia-northeast1-docker.pkg.dev/${_PROJECT_ID}/api/api:latest']
+substitutions:
+  _PROJECT_ID: engaged-hook-421420
